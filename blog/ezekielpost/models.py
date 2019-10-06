@@ -51,31 +51,32 @@ class Department (models.Model):
         return self.name
 
 
-# class Industry (models.Model):
-#     name = models.CharField(max_length=200, unique=True)
-#     focus = models.TextField()
-#
-#     class Meta:
-#         ordering = ['name']
-#
-#     def __str__(self):
-#         return self.name
-#
-#
-# class Casestudies (models.Model):
-#     title = models.CharField(max_length=200, unique=True)
-#     focus = models.TextField()
-#     content = models.TextField()
-#     industry = models.ManyToManyField('Industry', blank=True, null=True)
-#     department = models.ManyToManyField('Department', blank=True, null=True)
-#     slug = models.SlugField(max_length=200, unique=True)
-#     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='case_studies')
-#     updated_on = models.DateTimeField(auto_now=True)
-#     created_on = models.DateTimeField(auto_now_add=True)
-#     status = models.IntegerField(choices=STATUS, default=0)
-#
-#     class Meta:
-#         ordering = ['title']
-#
-#     def __str__(self):
-#         return self.title
+class Industry (models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    focus = models.TextField()
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
+
+class Casestudies (models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    focus = models.TextField()
+    content = models.TextField()
+    industry = models.ManyToManyField('Industry', blank=True)
+    department = models.ManyToManyField('Department', blank=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='case_studies')
+    updated_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title
