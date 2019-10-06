@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Department
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -10,3 +10,11 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post, PostAdmin)
+
+
+class DepartmentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'sales_point')
+    list_filter = ("name",)
+
+
+admin.site.register(Department, DepartmentAdmin)

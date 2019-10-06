@@ -1,51 +1,66 @@
 {% extends "base.html" %}
+{% load static%}
 {% block content %}
 <style>
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #fdfdfd;
-    }
 
-    .head_text {
-        color: white;
-    }
-
-    .card {
-        box-shadow: 0 16px 48px #E3E7EB;
-    }
 </style>
 
-<header class="masthead" style="margin-top: 60px;">
-    <div class="overlay"></div>
+<header class="mastead">
     <div class="container">
         <div class="row">
-            <div class=" col-md-8 col-md-10 mx-auto">
+            {% block page_video %}
+            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <source src="{% static "/img/Man_addressing_meeting_2.mp4" %}" type="video/mp4">
+            </video>
+            {% endblock %}
+            <div class="index-site-heading col-md-8">
                 <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to My Awesome Blog </h3>
-                    <p class="text-light">Outside my regular job and business, I write about
+                    {% block page_heading %}
+                    <h3>What We Do:<br /><span id="spin" style="font-weight:bold"></span></h3>
+
+
+
+
+                       <p><small>
+                           We partner with our clients for Business Growth & Personnel Development.
+                           No Guess Work. Deep research that drives result.
+                           </small>
+                       </p>
+                       <a href="#"
+                          class="btn">Learn More</a>
+                          {% endblock %}
+
+
+                    <!-- <p>Outside my regular job and business, I write about
                         Digital Marketing, SEO, Programming and Data Science. I trust you'd enjoy
                         reading as much as I enjoyed writing. Let me know.
-                    </p>
+                    </p> -->
                 </div>
             </div>
         </div>
     </div>
 </header>
+<hr />
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
         <div class="col-md-8 mt-3 left">
+            <h2 class="text-center" style="font-weight:bold">Recent Blog Posts</h2>
+            {% block post_list %}
             {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-body">
+
+                    <p class="card-department h6">{{ post.department}} | {{ post.stage}} </p>
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
+
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
                     <p class="card-text">{{post.content|slice:":200" }}</p>
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn">Read More &rarr;</a>
                 </div>
             </div>
             {% endfor %}
+            {% endblock %}
         </div>
         {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     </div>

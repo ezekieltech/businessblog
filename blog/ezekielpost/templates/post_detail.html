@@ -1,16 +1,60 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+<!-- <section
+    style="margin-top: 70px;
+    padding: 5px 0 0 5px;">
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
-      <div class="card-body">
-        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-        <p class="card-text ">{{ object.content | safe }}</p>
-      </div>
+    <small class="card-department">{{ post.department }} | {{ post.stage }}</small>
+</section>
+<section class="container">
+
+    <div class="img" style="background-image:url('{{post.post_image.url}}');position: absolute;
+    top: 17%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: contain;">
+        <img src="{{post.post_image.url}}" class="img-fluid rounded" alt="Personal Pic">
     </div>
-    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
-  </div>
-</div>
+
+</section> -->
+<section class="blog-post">
+    <div class="container">
+        <article class="row">
+
+            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <source src="{% static "/img/Man_addressing_meeting_2.mp4" %}" type="video/mp4">
+            </video>
+                <div class="col-md-8">
+                <div class="blog-post-heading">
+                    <div class="post-heading">
+
+                        <!-- <h3>What We Do:<br /><span id="spin" style="font-weight:bold"></span></h3> -->
+                        <small style="color:#fff"class="card-department">{{ post.department }} | {{ post.stage }}</small>
+                        <h1 style="color:#EF9822;font-weight:bold">{{ object.title }}</h1>
+                                               <!-- <p><small>
+                               We partner with our clients for Business Growth.
+                               No Guess Work. Deep research that drives smart growth
+                               </small>
+                           </p> -->
+                    </div>
+                </div>
+                <div class="card" style="background-color:#fff">
+                    <div class="card-body" style="">
+                        
+
+                      <p class="card-text ">{{ object.content | safe }}</p>
+                      <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                    </div>
+                </div>
+
+            </div>
+            {% block sidebar %} {% include 'blog_post_detail_aside.html' %} {% endblock sidebar %}
+
+        </article>
+    </div>
+</section>
 
 {% endblock content %}

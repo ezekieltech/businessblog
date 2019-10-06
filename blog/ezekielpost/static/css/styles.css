@@ -1,0 +1,236 @@
+body {
+    font-family: 'Lora', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    background-color: #fdfdfd;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Lora', serif;
+}
+
+h1 {
+    font-size: 1.7em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+.btn {
+    color: #fff;
+    background-color: #EF9822;
+    /*font-weight: bold;*/
+}
+
+p{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #f00000;
+    border-color: #dc281e;
+}
+
+
+.navbar {
+    background-color: #EF9822;
+    /*color: #fff;*/
+}
+
+.navbar-toggler {
+    color: white;
+    background-color: #EF9822;
+}
+
+
+.navbar-brand,  .navbar-collapse ul li a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar-brand h1{
+    font-size: 1.5em;
+}
+
+
+
+header {
+    /*background: #3398E1;*/
+    /*height: auto;
+    padding-bottom: 15px;*/
+    box-shadow: 0 16px 48px #E3E7EB;
+    margin-top: 70px;
+
+}
+
+header video {
+  /*position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;*/
+  position: fixed;
+  top: 25%;
+  left: 50%;*/
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+}
+
+#spin {
+  color:#EF9822;
+}
+#spin:after {
+  content:"Software Development";
+  animation: spin 10s linear infinite;
+}
+@keyframes spin {
+  0% { content:"Digital Marketing"; }
+
+  25% { content:"Website and ECommerce Design"; }
+
+  50% { content:"Search Engine Optimization"; }
+
+  75% { content: "Data Science"; }
+}
+
+.carousel-content {
+    color:black;
+    display:flex;
+    align-items:center;
+}
+
+#text-carousel {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+}
+
+
+header {
+    /*background-image: url("/static/img/personal.png");*/
+    /*background-repeat: no-repeat;
+    background-size:  auto;
+    background-attachment: fixed;
+    background-position: center;
+    height: 300px;*/
+}
+
+.index-site-heading {
+    color: #fff;
+    margin-top: 90px;
+    text-align: center;
+}
+
+.index-site-heading .btn {
+    color: #fff;
+    background-color: #EF9822;
+    font-weight: bold;
+}
+
+.site-heading {
+    background-color: rgb(33, 45, 60, .8);
+    border-radius: 15px;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.site-heading h3 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.head_text {
+    color: white;
+}
+
+
+/* Card on the index blog page*/
+.card {
+    box-shadow: 0 16px 48px #E3E7EB;
+}
+
+.card-department {
+    color: #EF9822;
+    font-weight: bold;
+}
+
+/*Post Detail*/
+.blog-post {
+    box-shadow: 0 16px 48px #E3E7EB;
+    margin-top: 70px;
+
+}
+
+.blog-post video {
+  position: fixed;
+  top: 25%;
+  left: 50%;*/
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+}
+
+
+.blog-post-heading {
+    color: #fff;
+    margin-top: 90px;
+    text-align: center;
+}
+
+.blog-post-heading .btn {
+    color: #fff;
+    background-color: #EF9822;
+    font-weight: bold;
+}
+
+.post-heading {
+    background-color: rgb(33, 45, 60, .8);
+    border-radius: 15px 15px 0 0;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.post-heading h3 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.head_text {
+    color: white;
+}
+
+
+/*Related Blog Post*/
+.related-post .card-body ul li {
+    list-style: none;
+    border-bottom: 1px solid #EF9822;
+
+}
+
+.related-post .card-body ul {
+    padding: 0;
+
+}
+
+.contact-us .card-body .btn {
+    margin-top: 12px;
+}
