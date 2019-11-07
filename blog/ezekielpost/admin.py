@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Department, Industry, Casestudies
+from .models import Post, Department, Industry
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -26,11 +26,3 @@ class IndustryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Industry, IndustryAdmin)
-
-
-class CasestudiesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'focus')
-    list_filter = ("industry", "department", "status")
-
-
-admin.site.register(Casestudies, CasestudiesAdmin)

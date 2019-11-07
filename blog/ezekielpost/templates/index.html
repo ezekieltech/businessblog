@@ -17,30 +17,138 @@
                 <div class="site-heading">
                     {% block page_heading %}
                     <h3>What We Do:<br /><span id="spin" style="font-weight:bold"></span></h3>
-
-
-
-
                        <p><small>
                            We partner with our clients for Business Growth & Personnel Development.
                            No Guess Work. Deep research that drives result.
                            </small>
                        </p>
-                       <a href="#"
+                       <a href="{% url 'departments' %}"
                           class="btn">Learn More</a>
                           {% endblock %}
-
-
-                    <!-- <p>Outside my regular job and business, I write about
-                        Digital Marketing, SEO, Programming and Data Science. I trust you'd enjoy
-                        reading as much as I enjoyed writing. Let me know.
-                    </p> -->
                 </div>
             </div>
         </div>
     </div>
 </header>
 <hr />
+<div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
+
+        <!--Controls-->
+        <div class="controls-top">
+          <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i
+              class="fas fa-chevron-left"></i></a>
+          <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i
+              class="fas fa-chevron-right"></i></a>
+        </div>
+        <!--/.Controls-->
+      
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="1"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="2"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="3"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="4"></li>
+          <li data-target="#carousel-example-multi" data-slide-to="5"></li>
+        </ol>
+        <!--/.Indicators-->
+      
+        <div class="carousel-inner v-2" role="listbox">
+      
+                <div class="carousel-item active">
+                        <div class="col-12 col-md-4">
+                          <div class="card mb-2">
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (36).jpg"
+                              alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title font-weight-bold">Card title</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                              <a class="btn btn-primary btn-md btn-rounded">Button</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="col-12 col-md-4">
+                          <div class="card mb-2">
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (34).jpg"
+                              alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title font-weight-bold">Card title</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                              <a class="btn btn-primary btn-md btn-rounded">Button</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="col-12 col-md-4">
+                          <div class="card mb-2">
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (38).jpg"
+                              alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title font-weight-bold">Card title</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                              <a class="btn btn-primary btn-md btn-rounded">Button</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="col-12 col-md-4">
+                          <div class="card mb-2">
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (29).jpg"
+                              alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title font-weight-bold">Card title</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                              <a class="btn btn-primary btn-md btn-rounded">Button</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="col-12 col-md-4">
+                          <div class="card mb-2">
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (30).jpg"
+                              alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title font-weight-bold">Card title</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                              <a class="btn btn-primary btn-md btn-rounded">Button</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="col-12 col-md-4">
+                          <div class="card mb-2">
+                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (27).jpg"
+                              alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title font-weight-bold">Card title</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                              <a class="btn btn-primary btn-md btn-rounded">Button</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+        </div>
+      
+      </div>
+
+
+<div>
+    {% for case_study in list_of_case_studies %}
+        {{case_study.industry}}
+    {% endfor %}
+</div>
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
@@ -51,7 +159,7 @@
             <div class="card mb-4">
                 <div class="card-body">
 
-                    <p class="card-department h6">{{ post.department}} | {{ post.stage}} </p>
+                    <p class="card-department h6">{{ post.department}} | {{ post.stage}} | {{ post.industry.name}} </p>
                     <h2 class="card-title">{{ post.title }}</h2>
 
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
@@ -66,3 +174,21 @@
     </div>
 </div>
 {%endblock%}
+
+<script>
+    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+
+  for (var i=0;i<4;i++) {
+    next=next.next();
+    if (!next.length) {
+      next=$(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
+</script>
