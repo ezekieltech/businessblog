@@ -156,6 +156,22 @@ header {
     color: white;
 }
 
+/* Carousel on the index page*/
+.carousel-indicators .active {
+  background-color: #EF9822;
+}
+
+.carousel-indicators li{
+  background-color: black;
+  top: 5px;
+}
+
+.carousel-inner .card-img-top {
+  max-height: 250px;
+}
+
+
+
 
 /* Card on the index blog page*/
 .card {

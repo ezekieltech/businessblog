@@ -27,12 +27,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!fqchn@r96!=-7d7kd11wijfcwzm$o@&*%eaz4per=!8p+ywez'
+#SECRET_KEY = '!fqchn@r07!=-7d7kd11wijfcwzm$o@&*%eaz4per=!8p+ywez'
+with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblog_djangosecretkey.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '680acc71.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'ee6e9e34.ngrok.io']
 
 
 # Application definition
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-with open('C:\my_songs\Stuffs On Git\ezekielblogdb_psswrd.txt') as f:
+with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblogdb_psswrd.txt') as f:
     ezekielblogdb_psswrd = f.read().strip()
 
 

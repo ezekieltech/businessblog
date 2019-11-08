@@ -10,7 +10,7 @@ class PostList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(PostList, self).get_context_data(**kwargs) 
         list_of_case_studies = Post.objects.filter(status=1,type='featured').order_by('-created_on')
-        context['list_of_case_studies'] = list_of_case_studies
+        context['list_of_case_studies'] = list_of_case_studies[:5]
         return context
 
 
