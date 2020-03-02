@@ -34,7 +34,7 @@ with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblog_djangosecretkey.
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'ee6e9e34.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'b774b487.ngrok.io']
 
 
 # Application definition
