@@ -24,6 +24,8 @@ TYPE = (
 
 class Department (models.Model):
     name = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    image = models.ImageField(upload_to='service/', blank=True, null=True)
     sales_point = models.TextField()
 
     class Meta:

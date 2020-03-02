@@ -5,15 +5,16 @@
 
 </style>
 
-<header class="mastead">
-    <div class="container">
+<header class="mastead container">
         <div class="row">
             {% block page_video %}
             <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                <source src="{% static "/img/Man_addressing_meeting_2.mp4" %}" type="video/mp4">
+                <source src="{% static "/ezekielpost/img/Man_addressing_meeting_2.mp4" %}" type="video/mp4">
             </video>
             {% endblock %}
-            <div class="index-site-heading col-md-8">
+          </div>
+          <div class="row index-site-heading">
+            <div class="headingone col-md-8">
                 <div class="site-heading">
                     {% block page_heading %}
                     <h3>What We Do:<br /><span id="spin" style="font-weight:bold"></span></h3>
@@ -27,14 +28,18 @@
                           {% endblock %}
                 </div>
             </div>
+            <!-- <div class="col-md-4" style="visibility: hidden"></div> -->
         </div>
-    </div>
 </header>
-<hr />
 
-<section id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
+{% block replace_indexhtml_content %}
+<section class="container carouselcasestudies">
 <div class="row">
-  <!--Controls-->
+  
+  <div  id="carousel-example-multi" class="col-md-8 slide carousel-multi-item v-2" data-ride="carousel">
+    <h2 class="">Case Studies</h2>
+   
+    <!--Controls-->
   <div class="controls-top">
     <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
     <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i class="fas fa-chevron-right"></i></a>
@@ -49,10 +54,12 @@
   </ol>
   <!--/.Indicators-->
 
+  
+
   <div class="carousel-inner v-2" role="listbox">
     {% for case_study in list_of_case_studies %}
     <div class="carousel-item {% if forloop.first %} active {% endif %}">
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-12">
         <div class="card mb-2">
           <img class="card-img-top" src="{{case_study.post_image.url}}" alt="{{case_study.post_image_alt}}">
           <div class="card-body">
@@ -65,9 +72,16 @@
     </div>
     {% endfor %}
   </div>
+  
+  </div>
+  <div class="col-md-4">
+    {% include 'contact_us_aside.html' %}
+
+ </div>
+  
 </div>
 </section>
-
+{% endblock %}
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
@@ -78,7 +92,7 @@
             <div class="card mb-4">
                 <div class="card-body">
 
-                    <p class="card-department h6">{{ post.department}} | {{ post.stage}} | {{ post.industry.name}} </p>
+                    <p class="card-department h6">{{ post.department}} </p>
                     <h2 class="card-title">{{ post.title }}</h2>
 
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
