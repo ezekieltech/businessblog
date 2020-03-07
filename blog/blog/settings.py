@@ -40,6 +40,11 @@ ALLOWED_HOSTS = ['127.0.0.1', 'b774b487.ngrok.io']
 # Application definition
 
 INSTALLED_APPS = [
+
+    #myapps
+    'account',
+
+    #django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,6 +85,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blog.wsgi.application'
 
 
+AUTH_USER_MODEL = 'account.Account'
+
+
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblogdb_psswrd.txt') as f:
@@ -91,7 +99,7 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ezekielblogdb',
+        'NAME': 'db_ahng2',
         'USER': 'postgres',
         'PASSWORD': ezekielblogdb_psswrd,
         'HOST': '',

@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Post, Department, Industry
-
+from .models import Post, Department, Industry, Profile
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status', 'created_on')
@@ -26,3 +25,9 @@ class IndustryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Industry, IndustryAdmin)
+
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('firstname',)
+
+
+admin.site.register(Profile, ProfileAdmin)

@@ -1,5 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL
 
 from PIL import Image
 
@@ -18,7 +22,8 @@ TYPE = (
     ('post', "post"),
     ('page', "page"),
     ('case_studies', "case_studies"),
-    ('featured','featured')
+    ('featured','featured'),
+    ('staff', 'staff')
 )
 
 
@@ -44,7 +49,6 @@ class Industry (models.Model):
 
     def __str__(self):
         return self.name
-
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -73,3 +77,27 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Profile(models.Model):
+    firstname = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    bio = models.TextField(blank=True)
+    post = models.ForeignKey (Post, on_delete=models.CASCADE, blank=True, null=True)
+    career = models.CharField(max_length=250)
+    
+
+    # def __str__(self):
+    #     return self.firstname
+
+# @receiver(post_save, sender=User)
+# def create_user_profile (sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.created(user=instance)
+
+# @receiver(post_save, sender=User)
+# def save_user_profile(sender, instance, **kwargs):
+#     instance.profile.save()
+
+
+
+
