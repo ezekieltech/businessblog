@@ -24,5 +24,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('ezekielpost.urls')),
-    path('admin/', admin.site.urls),
+    path('', include('account.urls')),
+    path('admin/', admin.site.urls)
 ]

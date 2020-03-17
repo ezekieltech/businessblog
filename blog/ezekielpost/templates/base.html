@@ -37,9 +37,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Data Science</a>
                         </li>
+                        
                     </ul>
                 </div>
 
+                {% if request.user.is_authenticated %}
+                  <p><strong>Hello, {{request.user.username}} |</strong> 
+                    <a class = 'p2 text-dark' href="{% url 'account' %}"> Account</a> |
+                    <a class = 'p2 text-dark' href="{% url 'logout' %}"> Logout</a>
+                  </p>
+                {% else %}
+                <p><strong><a class = 'btn btn-outline-primary' href="{% url 'register' %}"> Register</a> |</strong> 
+                  <a class = 'p2 text-dark' href="{% url 'login' %}"> Login</a></p>
+                {% endif %}
         </nav>
         {% block content %}
         <!-- Content Goes here -->
