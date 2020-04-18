@@ -34,6 +34,9 @@ with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblog_djangosecretkey.
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 ALLOWED_HOSTS = ['127.0.0.1', 'b774b487.ngrok.io']
 
 
