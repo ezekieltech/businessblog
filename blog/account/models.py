@@ -35,8 +35,6 @@ class MyAccountManager (BaseUserManager):
         user.save(using=self._db)
 
 
-
-
 class Account(AbstractBaseUser):
     email           = models.EmailField(verbose_name="email", max_length=60,unique=True)
     username        = models.CharField(max_length=30, unique=True)
@@ -47,9 +45,8 @@ class Account(AbstractBaseUser):
     is_active       = models.BooleanField(default=True)
     is_superuser    = models.BooleanField(default=False)
 
-
-    USERNAME_FIELD = "email" #i want you to log in with email
-    REQUIRED_FIELDS= ['username',]
+    USERNAME_FIELD = "email"  # i want you to log in with email
+    REQUIRED_FIELDS = ['username']
 
     objects = MyAccountManager()
 
@@ -59,7 +56,7 @@ class Account(AbstractBaseUser):
     def has_perm(self, perm, obj=None):
         return self.is_admin
 
-    def has_module_perms (self, app_label):
+    def has_module_perms(self, app_label):
         return True
 
 

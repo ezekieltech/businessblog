@@ -37,7 +37,7 @@ DEBUG = True
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'b774b487.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'db487005daf5.ngrok.io']
 
 
 # Application definition

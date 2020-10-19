@@ -1,52 +1,36 @@
 {% block sidebar %}
 
 <style>
-        .card{
-            box-shadow: 0 16px 48px #E3E7EB;
-        }
-
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
 </style>
 
 <!-- Sidebar Widgets Column -->
 <aside class="col-md-4 float-right">
-<div class="card my-4 related-post">
-        <h4 class="card-header">Related Blog Posts</h4>
+    {% block related_recent_post %}
+    {% include 'related_post.html' with related_post=related_post %}
+    {% endblock %}
+
+    <div class="card my-4 contact-us">
+        <h4 class="card-header">Contact Us</h4>
         <div class="card-body">
-            <ul class="card-text">
-                {% for post in related_post %}
+            <p class="card-text">
+                Are you looking for online strategies to grow your business? Or, do you need
+                guidance on your next project?
+            </p>
 
-
-                    <li>
-                        <a ><small>{{post.stage}}</small></a>, <a><small>{{post.department.name}}</small></a>
-                    <br /><a href="{% url 'post_detail' post.slug %}">{{post.title}}</a>
-                    </li>
-
-                {% endfor %}
-            </ul>
+            <p>
+                <strong>Book An Appointment Now! </strong>
+            </p>
+            <a href="mailto:ezekiel.obhafuoso@analyticshub.tech?Subject=Hello%20" class="btn">Email:
+                info@analyticshub.tech</a><br />
+            <a href="" class="btn">WhatsApp/ Call: +2347083049565</a>
 
         </div>
-</div>
-
-<div class="card my-4 contact-us">
-    <h4 class="card-header">Contact Us</h4>
-    <div class="card-body">
-        <p class="card-text">
-            Are you looking for online strategies to grow your business? Or, do you need
-             guidance on your next project?
-        </p>
-
-        <p>
-            <strong>Book An Appointment Now! </strong>
-        </p>
-        <a href="mailto:ezekiel.obhafuoso@analyticshub.tech?Subject=Hello%20"
-           class="btn">Email: info@analyticshub.tech</a><br />
-           <a href=""
-              class="btn">WhatsApp/ Call: +2347083049565</a>
-
     </div>
-</div>
 
-<!-- <div class="contact-clean" id='contact'>
+    <!-- <div class="contact-clean" id='contact'>
     <form  method="post" data-aos="zoom-in">
         {% csrf_token %}
         <h2 class="text-center">Contact us</h2> {% if '/success' in request.path %}
