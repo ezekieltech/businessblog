@@ -5,14 +5,15 @@ from .models import Post, Department, STAGE, Profile
 
 class PostList(generic.ListView):
     # template name
-    
     template_name = 'index.html'
     queryset = Post.objects.filter(status=1).order_by('-created_on')
 
     def get_context_data(self, **kwargs):
         context = super(PostList, self).get_context_data(**kwargs) 
         list_of_case_studies = Post.objects.filter(status=1,type='featured').order_by('-created_on')
+        list_of_department = Department.objects.all # used for main and footer menu
         context['list_of_case_studies'] = list_of_case_studies[:5]
+        context['list_of_department'] = list_of_department # used for main and footer menu
         return context
 
 
@@ -34,6 +35,8 @@ class DepartmentDetail(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DepartmentDetail, self).get_context_data(**kwargs)
+        list_of_department = Department.objects.all # used for main and footer menu
+        context['list_of_department'] = list_of_department # used for main and footer menu
         return context
 
 
@@ -45,6 +48,8 @@ class DepartmentList(generic.ListView):
         context = super(DepartmentList, self).get_context_data(**kwargs)
         post_list = Post.objects.filter(status=1).order_by('-created_on')[:3]
         context['post_list'] = post_list
+        list_of_department = Department.objects.all # used for main and footer menu
+        context['list_of_department'] = list_of_department # used for main and footer menu
         return context
 
 

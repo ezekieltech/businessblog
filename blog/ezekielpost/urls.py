@@ -11,8 +11,8 @@ from . import views
 urlpatterns = [
     url(r'^$', views.PostList.as_view(), name='home'),
     url(r'^posts/(?P<slug>.+)/$', views.PostDetail.as_view(), name='post_detail'),
-    url(r'^department/(?P<slug>.+)/$', views.DepartmentDetail.as_view(), name='department_detail'),
-    url(r'^departments/$', views.DepartmentList.as_view(), name='departments'),
+    url(r'^service/(?P<slug>.+)/$', views.DepartmentDetail.as_view(), name='department_detail'),
+    url(r'^services/$', views.DepartmentList.as_view(), name='departments'),
     url(r'^department/(?P<user>.+)/$', views.ProfileDetail.as_view(), name='profile_detail')
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

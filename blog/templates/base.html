@@ -56,18 +56,9 @@
           <h5 class="text-uppercase">Menu</h5>
 
           <ul class="list-unstyled">
-            <li>
-              <a href="#!">Digital Marketing</a>
-            </li>
-            <li>
-              <a href="#!">Search Engine Optimization</a>
-            </li>
-            <li>
-              <a href="#!">Website, Ecommerce, Programming</a>
-            </li>
-            <li>
-              <a href="#!">Data Science</a>
-            </li>
+            {% for service in list_of_department %}
+              <li><a class="nav-link" href="{% url 'departments' %}">{{service}}</a></li>
+            {% endfor %}
           </ul>
 
         </div>
