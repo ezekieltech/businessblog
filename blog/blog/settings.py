@@ -27,9 +27,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = '!fqchn@r07!=-7d7kd11wijfcwzm$o@&*%eaz4per=!8p+ywez'
-with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblog_djangosecretkey.txt') as f:
-    SECRET_KEY = f.read().strip()
+SECRET_KEY = '!fqchn@r07!=-7d7kd11wijfcwzm$o@&*%eaz4per=!8p+ywez'
+# with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblog_djangosecretkey.txt') as f:
+#     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -93,20 +93,20 @@ AUTH_USER_MODEL = 'account.Account'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblogdb_psswrd.txt') as f:
-    ezekielblogdb_psswrd = f.read().strip()
+# with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblogdb_psswrd.txt') as f:
+#     ezekielblogdb_psswrd = f.read().strip()
 
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_ahng2',
-        'USER': 'postgres',
-        'PASSWORD': ezekielblogdb_psswrd,
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'i-07b26a0c7421fda7a',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'postgres',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
     }
 }
 
@@ -150,5 +150,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "blog/static"),
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

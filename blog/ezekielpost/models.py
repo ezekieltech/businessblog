@@ -5,7 +5,7 @@ from django.conf import settings
 
 User = settings.AUTH_USER_MODEL
 
-from PIL import Image
+# from PIL import Image
 
 STATUS = (
     (0, "Draft"),
