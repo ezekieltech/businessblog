@@ -9,11 +9,25 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+from pathlib import Path
+import environ
 import os
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Set the project base directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
@@ -27,17 +41,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!fqchn@r07!=-7d7kd11wijfcwzm$o@&*%eaz4per=!8p+ywez'
-# with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblog_djangosecretkey.txt') as f:
+# SECRET_KEY = '!fqcr07!=-7d7kd11wijfcw&*%eaz4per=!8p+ywez'
+# with open('C:/Users/hp/programming/non-jumbo/new/django_keys.txt') as f:
 #     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+# False if not in os.environ because of casting above
+DEBUG = env('DEBUG')
+
+# Raises Django's ImproperlyConfigured
+# exception if SECRET_KEY not in os.environ
+SECRET_KEY = env('SECRET_KEY')
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'db487005daf5.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -96,17 +116,28 @@ AUTH_USER_MODEL = 'account.Account'
 # with open('C:\my_songs\Stuffs On Git\passwords_keys\ezekielblogdb_psswrd.txt') as f:
 #     ezekielblogdb_psswrd = f.read().strip()
 
+# with open('C:/Users/hp/programming/non-jumbo/new/password_keys.txt') as f:
+#     POSTGRES_PASSWORD = f.read().strip()
+# with open('C:/Users/hp/programming/non-jumbo/new/postgres_host.txt') as f:
+#     POSTGRES_HOST = f.read().strip()
+# with open('C:/Users/hp/programming/non-jumbo/new/postgres_port.txt') as f:
+#     POSTGRES_PORT = f.read().strip()
+# with open('C:/Users/hp/programming/non-jumbo/new/postgres_dbname.txt') as f:
+#     POSTGRES_NAME = f.read().strip()
+# with open('C:/Users/hp/programming/non-jumbo/new/postgres_user.txt') as f:
+#     POSTGRES_USER = f.read().strip()
+
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': 'i-07b26a0c7421fda7a',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'postgres',
-        # 'HOST': 'localhost',
-        # 'PORT': '5432',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('POSTGRES_NAME'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT')
     }
 }
 
@@ -154,3 +185,13 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_SIGNATURE_NAME = env('AWS_S3_SIGNATURE_NAME')
+AWS_S3_REGION_NAME = env('AWS_S3_REGION_NAME')
+AWS_S3_FILE_OVERWRITE = env('AWS_S3_FILE_OVERWRITE')
+AWS_DEFAULT_ACL =  env('AWS_DEFAULT_ACL')
+AWS_S3_VERITY = env('AWS_S3_VERITY')
+DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE')
