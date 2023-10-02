@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
+from tinymce import models as tinymce_models
 
 User = settings.AUTH_USER_MODEL
 
@@ -64,7 +65,7 @@ class Post(models.Model):
     industry = models.ForeignKey(Industry, on_delete=models.CASCADE, null = True, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     focus = models.TextField(blank=True,null=True)
-    content = models.TextField()
+    content = tinymce_models.HTMLField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     stage = models.CharField(max_length=400, choices=STAGE, blank=True,
